@@ -53,20 +53,21 @@ class LinkedList(object):
             self.size += 1
 
     def delete(self, value):
-        current = self.head
-        while current.value != value and current.next:
-            current = current.next
-        if current.value == value:
-            if current.prev:
-                current.prev.next = current.next
-            else:
-                self.head = current.next
-                current.next.prev = None
-            if current.next:
-                current.next.prev = current.prev
-            else:
-                self.tail = current.prev
-                current.prev.next = None
+        if self.size > 0:
+            current = self.head
+            while current.value != value and current.next:
+                current = current.next
+            if current.value == value:
+                if current.prev:
+                    current.prev.next = current.next
+                else:
+                    self.head = current.next
+                    current.next.prev = None
+                if current.next:
+                    current.next.prev = current.prev
+                else:
+                    self.tail = current.prev
+                    current.prev.next = None
 
     def reverse(self):
         current = self.head
@@ -85,6 +86,18 @@ class LinkedList(object):
         while current:
             print(current.value, end=" ")
             current = current.next
+
+    def reverse2(self):
+        start = self.head
+        end = self.tail
+        with start != end:
+            self.changeElem(start,end)
+            start = start.next
+            end = end.prev
+
+    def change(self,start,end):
+        return
+
 
 # Test cases
 # Set up some Elements
