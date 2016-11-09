@@ -12,11 +12,7 @@ class Queue:
     def dequeue(self):
         return self.storage.pop(0)
 
-    def max(self):
-        if (self.storage.count() == 0):
-            return None
-        for elem in self.storage:
-            3
+
 
 # Setup
 q = Queue(1)
