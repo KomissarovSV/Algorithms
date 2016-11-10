@@ -73,10 +73,8 @@ class LinkedList(object):
         current = self.head
         while current:
             elem = current
+            self.change(elem)
             current = current.next
-            tmp1 = elem.prev
-            elem.prev = elem.next
-            elem.next = tmp1
         tmp2 = self.head
         self.head = self.tail
         self.tail = tmp2
@@ -90,12 +88,24 @@ class LinkedList(object):
     def reverse2(self):
         start = self.head
         end = self.tail
-        with start != end:
-            self.changeElem(start,end)
+        while start != end and start.next != end:
+            curStart = start
+            curEnd = end
             start = start.next
             end = end.prev
+            self.change(curStart)
+            self.change(curEnd)
+        if start != end:
+            self.change(end)
+        self.change(start)
+        tmp2 = self.head
+        self.head = self.tail
+        self.tail = tmp2
 
-    def change(self,start,end):
+    def change(self,start):
+        tmp = start.prev
+        start.prev = start.next
+        start.next = tmp
         return
 
 
@@ -139,7 +149,8 @@ print (ll.get_position(3).value," must be 3")
 
 ll.append(Element(6))
 ll.append(Element(7))
+ll.append(Element(9))
 ll.output()
-ll.reverse()
+ll.reverse2()
 print()
 ll.output()
