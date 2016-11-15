@@ -23,7 +23,7 @@ def sort(data,start = 0,end = None):
     sort(data,pivot + 1,end)
 
 
-a = [1,5,8,38,34,-4,-7,-2,56]
+a = [1,5,8,38,34,-4,-7,-2,56,100]
 sort(a)
 print(a)
 
