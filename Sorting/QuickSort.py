@@ -1,11 +1,13 @@
+#It dnot work correctly with duplicate keys. I will fix it later.
+
 def partition(data,start,end):
     pivot = data[start]
     i = start + 1
     j = end
     while True:
-        while data[i] < pivot and i != j:
+        while data[i] < pivot and i != end:
             i += 1
-        while data[j] > pivot:
+        while data[j] > pivot and i != start:
             j -= 1
         if i >= j:
             break
